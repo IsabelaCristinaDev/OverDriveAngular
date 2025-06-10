@@ -1,0 +1,84 @@
+
+<div class="card">
+  <div class="flex mb-2 gap-2 justify-content-end">
+
+    <p-button
+      (onClick)="activeIndex = 0"
+      [rounded]="isRounded"
+      styleClass="w-2rem h-2rem p-0"
+      [outlined]="activeIndex !== 0"
+      label="1" />
+    <p-button
+      (onClick)="activeIndex = 1"
+      [rounded]="isRounded"
+      styleClass="w-2rem h-2rem p-0"
+      [outlined]="activeIndex !== 1"
+      label="2" />
+    <p-button
+      (onClick)="activeIndex = 2"
+      [rounded]="isRounded"
+      styleClass="w-2rem h-2rem p-0"
+      [outlined]="activeIndex !== 2"
+      label="3" />
+  </div>
+  <p-tabView [(activeIndex)]="activeIndex">
+    <p-tabPanel header="Clientes">
+      <form>
+        <div class="card flex justify-center">
+          <div class="flex flex-col gap-2">
+            <h2>Cadastro do Cliente</h2>
+          </div>
+
+          <div class="ui-g-6 ">
+            <label>Nome Completo </label>
+            <input pInputText/>
+          </div>
+
+          <div class="ui-g-6 ">
+            <label>Email</label>
+            <input pInputText/>
+          </div>
+
+          <div class="ui-g-12 ">
+            <label>Campo 3</label>
+            <input pInputText/>
+          </div>
+
+          <div class="ui-g-12 ">
+            <label>Campo 4</label>
+            <input pInputText/>
+          </div>
+
+          <div class="ui-g-4 ">
+            <label>Campo 5</label>
+            <input pInputText/>
+          </div>
+
+          <div class="ui-g-4 ">
+            <label>Campo 6</label>
+            <input pInputText/>
+          </div>
+
+          <div class="ui-g-4 ui-fluid">
+            <label>Campo 7</label>
+            <input pInputText/>
+          </div>
+        </div>
+
+      </form>
+    </p-tabPanel>
+
+    <p-tabPanel header="Veiculos">
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+      </p>
+    </p-tabPanel>
+    <p-tabPanel header="Painel">
+      <p>
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+      </p>
+    </p-tabPanel>
+  </p-tabView>
+</div>
