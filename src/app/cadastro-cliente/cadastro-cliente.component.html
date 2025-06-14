@@ -1,0 +1,80 @@
+
+<div class="container">
+  <div class="form-image">
+    <p-image
+      src="assets/img/undraw_account_g3rf.png"
+      alt="Imagem de cadastro"
+      width="650">
+    </p-image>
+  </div>
+
+  <div class="form">
+    <form [formGroup]="formCliente"  (ngSubmit)="criarCliente()">
+
+      <div class="form-header">
+        <div class="title">
+          <h1>Cadastro de Cliente</h1>
+        </div>
+        <div class="login-button">
+          <button  type="submit">
+            Salvar
+          </button>
+        </div>
+      </div>
+
+      <div class="input-group">
+
+        <div class="input-box">
+          <label for="nome">Primeiro Nome:</label>
+          <input id="nome" type="text" placeholder="Digite nome" formControlName="nome" />
+        </div>
+
+        <div class="input-box">
+          <label for="last-name">Sobrenome:</label>
+          <input id="last-name" type="text"  placeholder="Digite sobrenome" formControlName="lastName" />
+        </div>
+
+        <div class="input-box">
+
+          <label for="email">E-mail:</label>
+          <input id="email" type="email" placeholder="Digite e-mail" formControlName="email" required />
+        </div>
+
+        <div class="input-box">
+          <label for="number">Celular:</label>
+          <p-inputMask
+            inputId="number"
+            mask="(99) 99999-9999"
+            placeholder="(99) 99999-9999"
+            formControlName="celular">
+
+          </p-inputMask>
+        </div>
+
+        <div class="input-box">
+          <label for="CPF">CPF:</label>
+          <p-inputMask
+            inputId="CPF"
+            mask="999.999.999-99"
+            placeholder="999.999.999-99"
+
+            formControlName="cpf">
+          </p-inputMask>
+        </div>
+
+        <div class="input-box">
+          <label for="CNPJ">CNPJ:</label>
+          <p-inputMask
+            inputId="CNPJ"
+            mask="99.999.999/9999-99"
+            placeholder="99.999.999/9999-99"
+            formControlName="cnpj">
+          </p-inputMask>
+        </div>
+
+      </div>
+
+      <div *ngIf="mensagemErro" class="p-error mt-2">{{ mensagemErro }}</div>
+    </form>
+  </div>
+</div>

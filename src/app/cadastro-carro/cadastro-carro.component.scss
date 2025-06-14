@@ -11,18 +11,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+  background: #5b0101;
 }
-
 .container {
   width: 90%;
-  height: 80vh;
+  margin: 2rem auto;
   display: flex;
-  box-shadow: 5px 5px 10px #ffffff;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
 }
 
-.container .form-image {
-  width: 100%;
+.form-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.form-image {
+  width: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,31 +40,70 @@ body {
   padding: 1rem;
 }
 
-.container .form-image img {
-  width: 31rem;
-}
-
-.container .form {
+.form {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-  padding: 3rem;
+  padding: 2rem;
+  background-color: #fff;
 }
 
-.container .form .form-header {
+.card {
+  width: 90%;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.form-header {
   margin-bottom: 3rem;
   display: flex;
   justify-content: space-between;
 }
+.login-button {
+  display: flex;
+  gap: 0.5rem;
 
-.container .form .form-header h1 {
-  position: relative;
+  button {
+    background-color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #e80303;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    font-size: 10px;
+    color: #000000;
+
+
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button:hover {
+    background-color: #e80303;
+
+  }
+
+
+  .p-button-secondary {
+    background-color: #ffffff;
+    border: 1px solid #e80303;
+    color: #000000;
+
+    &:hover {
+      background-color: #e80303;
+      color: #000000;
+    }
+  }
 }
 
-.container .form .form-header h1::after {
+
+.form-header h1::after {
   content: '';
   display: block;
   width: 5rem;
@@ -65,25 +114,20 @@ body {
   border-radius: 10px;
 }
 
-.container .form form {
-  width: 100%;
-}
-
-.container .form form .input-group {
+.input-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 1rem 0;
 }
 
-.container .form form .input-group .input-box {
+.input-box {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.1rem;
-  width: 100%;
 }
 
-.container .form form .input-group .input-box input {
+.input-box input {
   margin: 0.6rem 0;
   padding: 0.8rem 1.2rem;
   border: none;
@@ -92,60 +136,35 @@ body {
   font-size: 0.8rem;
 }
 
-.container .form form .input-group .input-box input:hover {
+.input-box input:hover {
   background-color: #eeeeee75;
 }
 
-.container .form form .input-group .input-box input:focus-visible {
-  outline: 1px solid #960000;
+.input-box input:focus-visible {
+  outline: 1px solid #5b0101;
 }
 
-.container .form form .input-group .input-box input::placeholder {
-  color: #000000be;
-}
-
-.container .form form .input-group .input-box label {
+.input-box label,
+.gender-title h6 {
   font-size: 0.75rem;
   font-weight: 600;
   color: #000000c0;
 }
 
-.container .form form .login-button {
-  display: flex;
-  align-items: center;
-}
-
-.container .form form .login-button button {
-  background-color: #ffffff;
-  padding: 0.4rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  border: 1px solid #e80303;
-}
-
-.container .form form .login-button button:hover {
-  background-color: #e80303;
-  color: white;
-}
-
-.container .form form .login-button button a {
-  text-decoration: none;
-  font-weight: 500;
-  color: black;
+.input-box input::placeholder {
+  color: #000000be;
 }
 
 
 
 @media screen and (max-width: 1330px) {
-  .container .form-image {
+  .form-image {
     display: none;
   }
-
   .container {
     width: 50%;
   }
-
-  .container .form {
+  .form {
     width: 100%;
   }
 }
@@ -155,8 +174,7 @@ body {
     width: 90%;
     height: auto;
   }
-
-  .container .form .input-group {
+  .input-group {
     flex-direction: column;
     z-index: 5;
     padding-right: 5rem;
