@@ -11,7 +11,7 @@ import {ClienteService} from "../service/cliente.service";
 import {Cliente} from "../model/cliente";
 import { TableModule } from 'primeng/table';
 import {Veiculo} from "../model/veiculo";
-import {VeiculoServiceService} from "../service/veiculoService.service";
+import {VeiculoService} from "../service/veiculo.service";
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -36,7 +36,7 @@ export class ClientesComponent implements OnInit {
   isRounded: boolean = true;
   constructor(
     private clienteService: ClienteService,
-   private veiculoServiceService: VeiculoServiceService
+   private veiculoServiceService: VeiculoService
 
 ) {}
 

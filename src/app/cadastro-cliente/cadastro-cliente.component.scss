@@ -16,8 +16,8 @@ body {
 }
 
 .container {
-  width: 100%; //largura
-  height: 80vh;// altura
+  width: 100%;
+  height: 80vh;
   display: flex;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
 }
@@ -80,6 +80,7 @@ body {
   cursor: pointer;
   border: 1px solid #e80303;
   transition: background-color 0.3s ease;
+
 }
 
 .login-button button:hover {

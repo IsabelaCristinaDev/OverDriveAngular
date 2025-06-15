@@ -5,8 +5,9 @@ import { ImageModule } from 'primeng/image';
 import { ButtonModule } from 'primeng/button';
 import { Veiculo} from "../model/veiculo";
 import { CommonModule } from '@angular/common';
-import { VeiculoServiceService} from "../service/veiculoService.service";
+
 import { TableModule } from 'primeng/table';
+import {VeiculoService} from "../service/veiculo.service";
 
 
 @Component({
@@ -35,16 +36,24 @@ export class CadastroCarroComponent implements OnInit {
   editandoId?: number;
   mensagemErro: string = '';
 
-  constructor(private veiculoService: VeiculoServiceService) {}
+  constructor(private veiculoService: VeiculoService) {}
 
   ngOnInit() {
+    console.log('CadastroCarroComponent iniciado');
     this.carregarVeiculos();
   }
 
   carregarVeiculos() {
     this.veiculoService.buscarTodos().subscribe({
-      next: (dados: Veiculo[]) => this.veiculos = dados,
-      error: () => this.mensagemErro = 'Erro ao carregar veículos.'
+      next: (dados: Veiculo[]) => {
+        console.log('Veículos recebidos:', dados);
+        this.veiculos = dados;
+        this.mensagemErro = '';
+      },
+      error: (err) => {
+        console.error('Erro ao buscar veículos:', err);
+        this.mensagemErro = 'Erro ao carregar veículos.';
+      }
     });
   }
 
@@ -70,7 +79,7 @@ export class CadastroCarroComponent implements OnInit {
           this.limparFormulario();
           this.carregarVeiculos();
         },
-        error: () => this.mensagemErro = 'Erro ao criar veículo(PLACA JA EXISTE).'
+        error: () => this.mensagemErro = 'Erro ao criar veículo.'
       });
     }
   }

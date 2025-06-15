@@ -3,23 +3,29 @@ import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import {ImageModule} from "primeng/image";
+import {PecaService} from "../service/peca.service";
+import { TableModule } from 'primeng/table';
+
 
 @Component({
-  selector: 'app-estoque',
+  selector: 'app-peca',
   standalone: true,
   imports: [
-    ReactiveFormsModule, InputTextModule, ButtonModule, ImageModule
+    ReactiveFormsModule, InputTextModule, ButtonModule, ImageModule, TableModule,
   ],
-  templateUrl: './estoque.component.html',
-  styleUrls: ['./estoque.component.scss']
+  templateUrl: './peca.component.html',
+  styleUrls: ['./peca.component.scss']
 })
-export class EstoqueComponent {
+export class PecaComponent {
   formProduto: FormGroup = new FormGroup({
     name: new FormControl(''),
     preco: new FormControl(''),
     quantidade: new FormControl(''),
   });
 
+
+  constructor(private pecaService: PecaService) {
+  }
 
   salvarProduto() {
     if (this.formProduto.valid) {

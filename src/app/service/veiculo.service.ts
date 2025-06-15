@@ -8,7 +8,7 @@ import {Veiculo} from "../model/veiculo";
 @Injectable({
   providedIn: 'root' // Isso torna o serviço singleton e injetável
 })
-export class VeiculoServiceService {
+export class VeiculoService {
   private apiUrl = 'http://localhost:8080/veiculos';
 
   constructor(private http: HttpClient) { }
