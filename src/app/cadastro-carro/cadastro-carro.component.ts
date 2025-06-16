@@ -5,7 +5,8 @@ import { ImageModule } from 'primeng/image';
 import { ButtonModule } from 'primeng/button';
 import { Veiculo} from "../model/veiculo";
 import { CommonModule } from '@angular/common';
-
+import {jsPDF }from 'jspdf';
+import {autoTable }from 'jspdf-autotable';
 import { TableModule } from 'primeng/table';
 import {VeiculoService} from "../service/veiculo.service";
 
@@ -110,4 +111,15 @@ export class CadastroCarroComponent implements OnInit {
     this.editandoId = undefined;
     this.mensagemErro = '';
   }
+  exportarPDF() {
+    const doc = new jsPDF();
+
+    autoTable(doc, {
+      head: [['ID', 'Marca', 'Modelo', 'Placa']],
+      body: this.veiculos.map(v => [v.id?.toString() || '', v.marca, v.modelo, v.placa])
+    });
+
+    doc.save('veiculos.pdf');
+  }
+
 }

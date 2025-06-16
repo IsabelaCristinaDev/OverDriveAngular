@@ -1,61 +1,65 @@
 <!--
 <div class="container">
-  <h2>Cadastro de Ordem de Serviço</h2>
-  <form [formGroup]="formOrdemServico" (ngSubmit)="salvarOrdem()">
 
-    &lt;!&ndash; Cliente &ndash;&gt;
+  <h2>Ordem de Serviço</h2>
+  <form [formGroup]="ordemForm" (ngSubmit)="salvarOrdem()">
+
+
     <div class="field">
       <label>Cliente</label>
       <p-dropdown
         [options]="clientes"
-        optionLabel="nomeCompleto"
+        optionLabel="nome"
         formControlName="cliente"
         placeholder="Selecione um cliente">
       </p-dropdown>
     </div>
 
-    &lt;!&ndash; Veículo &ndash;&gt;
+
     <div class="field">
       <label>Veículo</label>
       <p-dropdown
         [options]="veiculos"
-        optionLabel="descricao"
+        optionLabel="placa"
         formControlName="veiculo"
         placeholder="Selecione um veículo">
       </p-dropdown>
     </div>
 
-    &lt;!&ndash; Data da Ordem &ndash;&gt;
+
     <div class="field">
-      <label>Data da Ordem de Serviço</label>
+      <label>Data de Entrada</label>
+      <p-calendar formControlName="data" dateFormat="dd/mm/yy"></p-calendar>
+    </div>
+    <div class="field">
+      <label>Data de Saida</label>
       <p-calendar formControlName="data" dateFormat="dd/mm/yy"></p-calendar>
     </div>
 
-    &lt;!&ndash; Serviço Realizado &ndash;&gt;
     <div class="field">
       <label>Serviço Realizado</label>
       <textarea pInputTextarea rows="3" formControlName="servico"></textarea>
     </div>
 
-    &lt;!&ndash; Responsável &ndash;&gt;
+
     <div class="field">
       <label>Responsável pelo Serviço</label>
       <input pInputText formControlName="responsavel" />
     </div>
 
-    &lt;!&ndash; Peças &ndash;&gt;
+
     <div class="field">
       <label>Peças Utilizadas</label>
       <p-multiSelect
         [options]="pecas"
         optionLabel="name"
-        formControlName="pecas"
+        formControlName="peca"
         display="chip"
         placeholder="Selecione as peças">
       </p-multiSelect>
     </div>
 
-    &lt;!&ndash; Valores &ndash;&gt;
+
     <div class="field">
       <label>Valor das Peças (R$)</label>
       <input pInputText formControlName="valorPecas" />
@@ -71,11 +75,11 @@
       <input pInputText formControlName="totalGeral" readonly />
     </div>
 
-    &lt;!&ndash; Botão &ndash;&gt;
+
     <div class="field">
       <button pButton type="submit" label="Salvar Ordem de Serviço"></button>
     </div>
   </form>
 </div>
-&lt;!&ndash;&ndash;&gt;
+
 -->

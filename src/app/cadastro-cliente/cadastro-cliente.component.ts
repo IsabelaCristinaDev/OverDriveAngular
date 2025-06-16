@@ -41,7 +41,6 @@ export class CadastroClienteComponent implements OnInit {
 
   constructor(
     private clienteService: ClienteService,
-
   ) {
 
   }
@@ -64,6 +63,6 @@ export class CadastroClienteComponent implements OnInit {
         this.mensagemErro = 'Erro:ao criar cliente.';
       }
     });
-  }
 
+  }
 }

@@ -13,6 +13,9 @@ import { TableModule } from 'primeng/table';
 import {Veiculo} from "../model/veiculo";
 import {VeiculoService} from "../service/veiculo.service";
 import { CommonModule } from '@angular/common';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-clientes',
@@ -30,34 +33,36 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./clientes.component.scss']
 })
 export class ClientesComponent implements OnInit {
-  cliente : Cliente[]=[];
+  cliente: Cliente[] = [];
   veiculo: Veiculo[] = [];
   activeIndex: number = 0;
   isRounded: boolean = true;
+
   constructor(
     private clienteService: ClienteService,
-   private veiculoServiceService: VeiculoService
-
-) {}
+    private veiculoServiceService: VeiculoService
+  ) {
+  }
 
   ngOnInit(): void {
     this.buscarTodos()
 
   }
-  buscarTodos(){
+
+  buscarTodos() {
     this.clienteService.buscarTodos().subscribe({
-      next: data =>{
+      next: data => {
 
         this.cliente = data
 
       },
-      error : ()=>{
+      error: () => {
         console.log("erro ao buscar")
       }
     });
   }
 
-buscarVeiculos() {
+  buscarVeiculos() {
     this.veiculoServiceService.buscarTodos().subscribe({
       next: data => {
         this.veiculo = data;
@@ -66,5 +71,19 @@ buscarVeiculos() {
         console.log("Erro ao buscar veículos.");
       }
     });
-}
+  }
+
+  exportarClientesPDF() {
+    const doc = new jsPDF();
+    const dataHoje = format(new Date(), 'dd-MM-yyyy');
+
+    autoTable(doc, {
+      head: [['ID', 'Nome', 'Email', 'Celular', 'CPF', 'CNPJ']],
+      body: this.cliente.map(c => [
+        c.id ? c.id.toString() : '', c.nome || '', c.email || '', c.celular || '', c.cpf || '', c.cnpj || ''
+      ]),
+    });
+
+    doc.save(`clientes-${dataHoje}.pdf`);
+  }
 }

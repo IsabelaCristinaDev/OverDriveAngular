@@ -35,7 +35,7 @@ export class LeftSidebarComponent {
     },
     {
       label: 'Cadastro de  Serviço',
-      icon: 'pi pi-briefcase',
+      icon: 'pi pi-wrench',
       routerLink: '/servicos',
     },
   ];

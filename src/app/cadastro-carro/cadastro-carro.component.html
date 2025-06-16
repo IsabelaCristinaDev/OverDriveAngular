@@ -43,6 +43,9 @@
 
 
   <div class="card">
+    <div class="mb-3">
+      <button pButton type="button" label="Exportar PDF" icon="pi pi-file-pdf" (click)="exportarPDF()" class="p-button-danger botao-fixo"></button>
+    </div>
     <p-table [value]="veiculos"
              [scrollable]="true"
              scrollHeight="300px"

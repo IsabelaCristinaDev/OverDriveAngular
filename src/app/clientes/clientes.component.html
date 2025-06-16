@@ -29,8 +29,13 @@
     </p-tabPanel>
 
     <p-tabPanel header="Painel Clientes ">
+      <div class="mb-2 flex justify-content-end">
+        <button
+          pButton type="button" label="Exportar PDF" icon="pi pi-file-pdf" class="p-button-danger botao-pdf" (click)="exportarClientesPDF()">
+        </button>
+      </div>
 
-        <p-table [value]="cliente"
+      <p-table [value]="cliente"
                  [scrollable]="true"
                  scrollHeight="400px"
                  [tableStyle]="{ 'min-width': '50rem' }">

@@ -14,6 +14,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import {MultiSelectModule} from "primeng/multiselect";
 import {CalendarModule} from "primeng/calendar";
+import {Veiculo} from "../model/veiculo";
 
 @Component({
   selector: 'app-OrdemServicoComponent',
@@ -40,7 +41,7 @@ export class OrdemServicoComponent implements OnInit {
   pecas: Peca[] = [];
 
   ordemServico = { veiculo: null };
-  veiculosDoCliente: any[] = [];
+  veiculos: Veiculo[] = [];
 
   pecasSelecionadas: any[] = [];
   servicosSelecionados: any[] = [];
