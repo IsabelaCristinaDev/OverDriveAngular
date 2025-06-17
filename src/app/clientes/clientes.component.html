@@ -20,65 +20,49 @@
       styleClass="w-2rem h-2rem p-0"
       [outlined]="activeIndex !== 2"
       label="3" />
+
   </div>
+
   <p-tabView [(activeIndex)]="activeIndex">
     <p-tabPanel header="Clientes">
-      <form>
-        <div class="card flex justify-center">
-          <div class="flex flex-col gap-2">
-            <h2>Cadastro do Cliente</h2>
-          </div>
-
-          <div class="ui-g-6 ">
-            <label>Nome Completo </label>
-            <input pInputText/>
-          </div>
-
-          <div class="ui-g-6 ">
-            <label>Email</label>
-            <input pInputText/>
-          </div>
-
-          <div class="ui-g-12 ">
-            <label>Campo 3</label>
-            <input pInputText/>
-          </div>
-
-          <div class="ui-g-12 ">
-            <label>Campo 4</label>
-            <input pInputText/>
-          </div>
-
-          <div class="ui-g-4 ">
-            <label>Campo 5</label>
-            <input pInputText/>
-          </div>
-
-          <div class="ui-g-4 ">
-            <label>Campo 6</label>
-            <input pInputText/>
-          </div>
-
-          <div class="ui-g-4 ui-fluid">
-            <label>Campo 7</label>
-            <input pInputText/>
-          </div>
-        </div>
-
-      </form>
+      <app-cadastro-cliente></app-cadastro-cliente>
     </p-tabPanel>
 
-    <p-tabPanel header="Veiculos">
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-      </p>
-    </p-tabPanel>
-    <p-tabPanel header="Painel">
-      <p>
-        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-      </p>
+    <p-tabPanel header="Painel Clientes ">
+      <div class="mb-2 flex justify-content-end">
+        <button
+          pButton type="button" label="Exportar PDF" icon="pi pi-file-pdf" class="p-button-danger botao-pdf" (click)="exportarClientesPDF()">
+        </button>
+      </div>
+
+      <p-table [value]="cliente"
+                 [scrollable]="true"
+                 scrollHeight="400px"
+                 [tableStyle]="{ 'min-width': '50rem' }">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Celular</th>
+              <th>CPF</th>
+              <th>CNPJ</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-cliente>
+            <tr>
+              <td>{{ cliente.id }}</td>
+              <td>{{ cliente.nome }}</td>
+              <td>{{ cliente.email }}</td>
+              <td>{{ cliente.celular }}</td>
+              <td>{{ cliente.cpf }}</td>
+              <td>{{ cliente.cnpj }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+    <p-tabPanel header="Veículos">
+      <app-cadastro-carro></app-cadastro-carro>
     </p-tabPanel>
   </p-tabView>
 </div>

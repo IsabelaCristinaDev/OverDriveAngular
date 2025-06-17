@@ -1,0 +1,91 @@
+<div class="container">
+
+
+  <div class="form-section">
+    <div class="form-image">
+      <p-image src="assets/img/undraw_car-repair_wski.png" alt="Image" width="450">
+      </p-image>
+    </div>
+
+    <div class="form">
+      <form [formGroup]="formCarro" (ngSubmit)="salvar()">
+        <div class="form-header">
+          <div class="title">
+            <h1>{{ editandoId ? 'Editar Veículo' : 'Cadastro de Carro' }}</h1>
+          </div>
+          <div class="login-button">
+            <button pButton type="submit" label="Salvar"></button>
+            <button pButton type="button" label="Cancelar" class="p-button-secondary ms-2" (click)="limparFormulario()"></button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-box">
+            <label for="marca">Marca: </label>
+            <input id="marca" pInputText type="text" formControlName="marca" required />
+          </div>
+
+          <div class="input-box">
+            <label for="modelo">Modelo: </label>
+            <input id="modelo" pInputText type="text" formControlName="modelo" required />
+          </div>
+
+          <div class="input-box">
+            <label for="placa">Placa: </label>
+            <input id="placa" pInputText type="text" formControlName="placa" required />
+          </div>
+        </div>
+
+        <div *ngIf="mensagemErro" class="p-error mt-2">{{ mensagemErro }}</div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="mb-3">
+      <button pButton type="button" label="Exportar PDF" icon="pi pi-file-pdf" (click)="exportarPDF()" class="p-button-danger botao-fixo"></button>
+    </div>
+    <p-table [value]="veiculos"
+             [scrollable]="true"
+             scrollHeight="300px"
+             [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Placa</th>
+          <th>Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-veiculo>
+        <tr>
+          <td>{{ veiculo.id }}</td>
+          <td>{{ veiculo.marca }}</td>
+          <td>{{ veiculo.modelo }}</td>
+          <td>{{ veiculo.placa }}</td>
+          <td>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-text p-button-info"
+              (click)="editar(veiculo)"
+              aria-label="Editar">
+            </button>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-text p-button-danger"
+              (click)="deletar(veiculo.id)"
+              aria-label="Excluir">
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+</div>
