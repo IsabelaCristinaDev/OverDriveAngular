@@ -1,4 +1,3 @@
-<!--
 <div class="container">
 
   <h2>Ordem de Serviço</h2>
@@ -37,8 +36,14 @@
     </div>
 
     <div class="field">
-      <label>Serviço Realizado</label>
-      <textarea pInputTextarea rows="3" formControlName="servico"></textarea>
+      <label>Serviços</label>
+      <p-multiSelect
+        [options]="servicos"
+        optionLabel="nome"
+        formControlName="servico"
+        display="chip"
+        placeholder="Selecione os serviços">
+      </p-multiSelect>
     </div>
 
 
@@ -82,4 +87,3 @@
   </form>
 </div>
 
--->

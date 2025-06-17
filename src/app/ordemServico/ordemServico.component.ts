@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import {MultiSelectModule} from "primeng/multiselect";
 import {CalendarModule} from "primeng/calendar";
 import {Veiculo} from "../model/veiculo";
+import {VeiculoService} from "../service/veiculo.service";
+import {ServicoService} from "../service/servico.service";
+import {Servico} from "../model/servico";
 
 @Component({
   selector: 'app-OrdemServicoComponent',
@@ -39,9 +42,9 @@ export class OrdemServicoComponent implements OnInit {
   ordemForm!: FormGroup;
   clientes: Cliente[] = [];
   pecas: Peca[] = [];
-
-  ordemServico = { veiculo: null };
   veiculos: Veiculo[] = [];
+  ordemServico = { veiculo: null };
+  servicos: Servico[] = [];
 
   pecasSelecionadas: any[] = [];
   servicosSelecionados: any[] = [];
@@ -50,12 +53,16 @@ export class OrdemServicoComponent implements OnInit {
 
   constructor(
     private clienteService: ClienteService,
-    private pecaService: PecaService
+    private pecaService: PecaService,
+    private veiculoService: VeiculoService,
+    private servicoService: ServicoService
   ) {}
 
   ngOnInit(): void {
     this.ordemForm = new FormGroup({
       cliente: new FormControl(''),
+      veiculo: new FormControl(''),
+      pecas: new FormControl(''),
       dataFaturamento: new FormControl(null),
       parcelas: new FormControl(null),
       quantidade: new FormControl(1),
@@ -71,6 +78,12 @@ export class OrdemServicoComponent implements OnInit {
 
     this.pecaService.buscarTodas().subscribe((data) => {
       this.pecas = data;
+    });
+    this.veiculoService.buscarTodos().subscribe((data) => {
+      this.veiculos = data;
+    });
+    this.servicoService.listar().subscribe(data => {
+      this.servicos = data;
     });
   }
 

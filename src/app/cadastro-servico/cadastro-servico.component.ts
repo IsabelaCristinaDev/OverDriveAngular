@@ -8,6 +8,10 @@ import {InputTextModule} from "primeng/inputtext";
 import {InputNumberModule} from "primeng/inputnumber";
 import {ButtonModule} from "primeng/button";
 import {ImageModule} from "primeng/image";
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import { format } from 'date-fns';
+
 
 @Component({
   selector: 'app-cadastro-servico',
@@ -85,5 +89,18 @@ export class CadastroServicoComponent implements OnInit {
     this.formServico.reset();
     this.editando = false;
     this.idEditando = null;
+  }
+
+  exportarPDF(): void {
+    const doc = new jsPDF();
+    const dataHoje = format(new Date(), 'dd-MM-yyyy');
+
+    autoTable(doc, {
+      head: [['Nome', 'Preço Unitário', 'Funcionário']],
+      body: this.servicos.map(s => [s.nome, `R$ ${s.precoUnitario?.toFixed(2).replace('.', ',')}`, s.quemFez
+      ]),
+    });
+
+    doc.save(`servicos-${dataHoje}.pdf`);
   }
 }

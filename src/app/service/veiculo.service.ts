@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Veiculo} from "../model/veiculo";
 
-
-
 @Injectable({
   providedIn: 'root' // Isso torna o serviço singleton e injetável
 })

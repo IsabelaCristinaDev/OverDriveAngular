@@ -28,7 +28,7 @@
           </div>
 
           <div class="input-box">
-            <label for="quemFez">Funcionário </label>
+            <label for="quemFez">Quem Fez  </label>
             <input id="quemFez" pInputText formControlName="quemFez" />
           </div>
         </div>
@@ -37,12 +37,26 @@
   </div>
 
   <div class="card">
-    <p-table [value]="servicos" [scrollable]="true" scrollHeight="300px" [tableStyle]="{ 'min-width': '50rem' }">
+    <div class="mb-3">
+      <button
+        pButton
+        type="button"
+        label="Exportar PDF"
+        icon="pi pi-file-pdf"
+        class="p-button-danger exportar"
+        style="width: 180px; height: 42px; font-size: 14px;"
+        (click)="exportarPDF()">
+      </button>
+    </div>
+    <p-table [value]="servicos"
+             [scrollable]="true"
+             scrollHeight="300px"
+             [tableStyle]="{ 'min-width': '50rem' }">
       <ng-template pTemplate="header">
         <tr>
           <th>Nome</th>
           <th>Preço</th>
-          <th>Funcionario</th>
+          <th>Quemfez</th>
           <th>Ações</th>
         </tr>
       </ng-template>
