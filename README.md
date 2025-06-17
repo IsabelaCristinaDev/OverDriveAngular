@@ -1,27 +1,72 @@
-# FrontendAngular
+OverDrive - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+Este é o frontend do projeto OverDrive, uma interface web feita em Angular para gerenciamento de oficinas mecânicas.
 
-## Development server
+  Objetivo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Permitir o cadastro, consulta e gerenciamento de:
 
-## Code scaffolding
+- Clientes
+- Veículos
+- Ordens de Serviço
+-Serviços
+-Peças
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ Tecnologias
 
-## Build
+- Angular 17.0.10
+- PrimeNG
+- Node.js
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  Como rodar o projeto
 
-## Running unit tests
+1. Clone o repositório:
+   
+   git clone https://github.com/IsabelaCristinaDev/OverDriveAngular.git
+   
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Acesse a pasta do projeto:
+   
+   cd Frontend-Angular
+   
 
-## Running end-to-end tests
+3. Instale as dependências:
+   
+   npm install
+   
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. Inicie o servidor:
+   
+   ng serve
+   
 
-## Further help
+5. Acesse:
+   
+   https//localhost:4200
+   
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ Estrutura
+
+
+src/
+├── app/
+│   ├── components/       → Componentes de tela
+│   ├── services/         → Consumo da API
+├── angular.json          → Configurações do projeto
+├── package.json          → Dependências
+
+
+  Contribuição
+
+
+1. Crie uma branch:
+   
+   git checkout -b feature/nome-da-feature
+   
+2. Commit e push:
+   
+   git add .
+   git commit -m "Descrição da feature"
+   git push origin feature/nome-da-feature
+   
+3. Crie um Pull Request para a branch `main`.
