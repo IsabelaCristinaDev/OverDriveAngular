@@ -29,9 +29,14 @@ export class LeftSidebarComponent {
       routerLink: '/ordem-servico',
     },
     {
-      label: 'Estoque',
+      label: 'Peças',
       icon: 'pi pi-box',
-      routerLink: '/Estoque',
+      routerLink: '/peca',
+    },
+    {
+      label: 'Cadastro de  Serviço',
+      icon: 'pi pi-wrench',
+      routerLink: '/servicos',
     },
   ];
 

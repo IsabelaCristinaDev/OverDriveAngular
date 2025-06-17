@@ -1,1 +1,89 @@
-<p>Ordem de Serviço!</p>
+<div class="container">
+
+  <h2>Ordem de Serviço</h2>
+  <form [formGroup]="ordemForm" (ngSubmit)="salvarOrdem()">
+
+
+    <div class="field">
+      <label>Cliente</label>
+      <p-dropdown
+        [options]="clientes"
+        optionLabel="nome"
+        formControlName="cliente"
+        placeholder="Selecione um cliente">
+      </p-dropdown>
+    </div>
+
+
+    <div class="field">
+      <label>Veículo</label>
+      <p-dropdown
+        [options]="veiculos"
+        optionLabel="placa"
+        formControlName="veiculo"
+        placeholder="Selecione um veículo">
+      </p-dropdown>
+    </div>
+
+
+    <div class="field">
+      <label>Data de Entrada</label>
+      <p-calendar formControlName="data" dateFormat="dd/mm/yy"></p-calendar>
+    </div>
+    <div class="field">
+      <label>Data de Saida</label>
+      <p-calendar formControlName="data" dateFormat="dd/mm/yy"></p-calendar>
+    </div>
+
+    <div class="field">
+      <label>Serviços</label>
+      <p-multiSelect
+        [options]="servicos"
+        optionLabel="nome"
+        formControlName="servico"
+        display="chip"
+        placeholder="Selecione os serviços">
+      </p-multiSelect>
+    </div>
+
+
+    <div class="field">
+      <label>Responsável pelo Serviço</label>
+      <input pInputText formControlName="responsavel" />
+    </div>
+
+
+    <div class="field">
+      <label>Peças Utilizadas</label>
+      <p-multiSelect
+        [options]="pecas"
+        optionLabel="name"
+        formControlName="peca"
+        display="chip"
+        placeholder="Selecione as peças">
+      </p-multiSelect>
+    </div>
+
+
+    <div class="field">
+      <label>Valor das Peças (R$)</label>
+      <input pInputText formControlName="valorPecas" />
+    </div>
+
+    <div class="field">
+      <label>Valor do Serviço (R$)</label>
+      <input pInputText formControlName="valorServico" />
+    </div>
+
+    <div class="field">
+      <label>Total Geral (R$)</label>
+      <input pInputText formControlName="totalGeral" readonly />
+    </div>
+
+
+    <div class="field">
+      <button pButton type="submit" label="Salvar Ordem de Serviço"></button>
+    </div>
+  </form>
+</div>
+
